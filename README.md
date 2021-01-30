@@ -163,10 +163,42 @@ crw-rw---- 1 root i2c 89, 1 Jan 23 23:17 /dev/i2c-1
 
 ### 3.1 Relay Control Library
 
-The library abstracts all the details about the I2C interface and expose a generic API for applications.
+The library abstracts all details about the I2C interface (chapter 2.2.2) and exposes a generic API for applications. It is written in C to make it possible to integrate it everyone.
+
+Using the library is straightforward:
+```
+#include <stdio.h>
+#include <unistd.h>
+
+#include <rc/relay.h>
+
+int main(int argc, char* argv[])
+{
+     rc_relay_channel_init();
+
+     rc_relay_channel_t channels = rc_relay_channel_01 |
+                                   rc_relay_channel_05 |
+                                   rc_relay_channel_14;
+
+     rc_relay_channel_set(channels, true);
+
+     sleep(2);
+
+     rc_relay_channel_set(channels, false);
+
+     return 0;
+}
+```
 
 ### 3.2 Relay Control Tool
+The command line tool makes it easier to manually control relay states without using the potentially dangerous command i2cset. It is essentially a CLI wrapper around the library.
 
-The command line tool makes it easier to manually control relay states without using the potentially dangerous command i2cset.
-
-
+```
+rc_ctrl -c "relay_07 on"
+rc_ctrl -c "relay_07 query"
+value: true
+rc_ctrl -c "relay_07 off"
+value: false
+rc_ctrl -c "relay_all on"
+rc_ctrl -c "relay_all off"
+```
