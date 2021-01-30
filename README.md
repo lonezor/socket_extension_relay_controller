@@ -190,6 +190,8 @@ int main(int argc, char* argv[])
 }
 ```
 
+![Relay LEDs](doc/relay_leds.jpg)
+
 ### 3.2 Relay Control Tool
 The command line tool makes it easier to manually control relay states without using the potentially dangerous command i2cset. It is essentially a CLI wrapper around the library.
 
