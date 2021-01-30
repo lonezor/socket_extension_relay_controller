@@ -205,7 +205,7 @@ int main(int argc, char* argv[])
         rc_relay_channel_set(g_relay_channel, g_relay_enabled);
     } else { // query
         bool enabled = rc_relay_channel_get(g_relay_channel);
-        printf("value: %s", enabled ? "true" : "false");
+        printf("value: %s\n", enabled ? "true" : "false");
     }
 
     return 0;
