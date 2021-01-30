@@ -32,7 +32,7 @@ Power consumption examples of connected devices (power rating, power consumption
 
 **2) Entertainment System:**
 - TV (150W)
-- Reveiver and speakers (200W)
+- Receiver and speakers (200W)
 - Cable box (35W)
 - DVD/Bluray player (15W)
 - Video game console (150W)
@@ -91,7 +91,7 @@ The relay controller could potentially be daisy chained via the I2C interface to
 
 The selected Relay is intended for resistive loads. Thus not inductive loads such as motors, solenoids, and other devices that implement a collapsible magnetic field.
 
-Relay documentation: ![Relay documentation](doc/20a_30a_g8pt_0607-6.pdf)
+![Relay documentation](doc/20a_30a_g8pt_0607-6.pdf)
 
 For this project, normally open relay configuration is used:
 
@@ -123,7 +123,7 @@ The relay module uses a MCP23017 I/O chip to control the relays:
 
 ![MCP23017 chip](doc/io_chip.jpg)
 
-Documentation: ![MCP23017 chip](doc/MCP23017-21.pdf)
+![MCP23017 chip documentation](doc/MCP23017-21.pdf)
 
 The control register summary (TABLE 1-6) indicates that {GPIOA, GPIOB} need to be set to 0xff. Also, {IODIRA, IODIRB} need to be set using an inverted bitfield value to control individual relays. This is clarified below:
 ```
